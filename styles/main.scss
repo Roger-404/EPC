@@ -1,0 +1,15 @@
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
+
+@use './blocks/header';
+@use './blocks/icon';
+@use './blocks/burger-button';
+@use './blocks/overlay';
+@use './blocks/hero';
+@use './blocks/hero-card';
+@use './blocks/dotter-line';
+@use './blocks/buttons';
+@use './blocks/hero-slider';

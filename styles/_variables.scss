@@ -1,0 +1,20 @@
+@use 'helpers' as *;
+
+:root {
+  --color-light: #ffffff;
+  --color-light-alt: #f6ffd2;
+  --color-accent: #5E7600;
+  --color-dark: #000000;
+
+  --border: #{rem(3)} solid var(--color-light);
+  --border-radius: #{rem(35)} 0;
+
+  --shadow: 0 #{rem(4)} #{rem(15)} 0 rgba(255, 255, 255, 0.35);;
+
+  --font-family-base: 'Actay', sans-serif;
+
+  --container-width: #{rem(1210)};
+  --container-padding-x: #{rem(10)};
+
+  --transition-duration: 0.2s;
+}

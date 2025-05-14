@@ -1,0 +1,51 @@
+@use '../helpers' as *;
+
+.icon{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  column-gap: rem(36);
+
+  &::after{
+    --size: #{rem(24)};
+
+    @include square(var(--size));
+
+    content: '';
+    flex-shrink: 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &--arrow{
+    &::after{
+      background-image: url('../images/arrow.svg');
+
+      @include tablet{
+        background-image: url('../images/arrow--black.svg');
+      }
+    }
+
+    &-left{
+      padding-left: rem(30);
+      &::after{
+        position: absolute;
+        left: 0;
+        background-image: url('../images/arrow-left.svg');
+      }
+    }
+
+    &-right{
+      &::after{
+        background-image: url('../images/arrow-right.svg');
+      }
+    }
+
+    &-left,
+    &-right{
+      column-gap: rem(5);
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@use '../helpers' as *;
+
+.button{
+  background-color: inherit;
+  color: var(--color-light-alt);
+  border: none;
+}

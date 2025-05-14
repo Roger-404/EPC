@@ -1,0 +1,146 @@
+@use '../helpers' as *;
+
+.hero-card{
+  &__list{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    counter-reset: custom-counter;
+    list-style: none;
+    
+
+    @include laptop{
+      display: flex;
+      column-gap: rem(30);
+      height: rem(300);
+      width: rem(320);
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &__item{
+    position: relative;
+    max-width: rem(300);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    padding-block: rem(22);
+    padding-inline: rem(76) rem(15);
+    font-size: rem(14);
+    line-height: 130%;
+    color: var(--color-light-alt);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.3);
+
+    --counterContent: counter(custom-counter);
+
+    counter-increment: custom-counter;
+
+    &:nth-child(-n + 9){
+      --counterContent: counter(custom-counter);
+    }
+
+    &::before{
+      --size: #{rem(51)};
+
+      @include square(var(--size));
+
+      content: var(--counterContent);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: rem(15);
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      font-size: 2em;
+      border: rem(1) solid var(--color-light);
+      background-color: var(--color-accent);
+
+      @include laptop{
+        --size: #{rem(74)};
+
+        left: rem(108);
+        top: 35%;
+        font-size: 4em;
+      }
+    }
+
+    &::after{
+      content: '';
+      background-image: url('../images/drop.svg');
+      position: absolute;
+      left: 95%;
+      bottom: 55%;
+      width: rem(44);
+      height: rem(61);
+
+      @include laptop{
+        bottom: 83%;
+      }
+    }
+
+    &:nth-child(1) { 
+      grid-column: 1; 
+      grid-row: 1; 
+    } /* 1 */
+
+    &:nth-child(3) { 
+      grid-column: 1; 
+      grid-row: 2; 
+      left: rem(77);
+      top: rem(157);
+    } /* 2 */
+
+    &:nth-child(5) { 
+      grid-column: 2; 
+      grid-row: 2; 
+      top: rem(253);
+      left: rem(37);
+    } /* 3 */
+
+    &:nth-child(7) { 
+      grid-column: 2; 
+      grid-row: 1; 
+      top: rem(113);
+      right: rem(35);
+    } /* 4 */
+
+    &:nth-child(9) { 
+      grid-column: 3; 
+      grid-row: 1; 
+      top: rem(41);
+      left: rem(50);
+    } /* 5 */
+
+    &:nth-child(11) { 
+      grid-column: 3; 
+      grid-row: 2; 
+      top: rem(108);
+      right: rem(80);
+    } /* 6 */
+
+    @include laptop{
+      min-width: rem(290);
+      height: rem(217);
+      padding-block: rem(139) rem(44);
+      padding-inline: rem(18);
+      margin-top: rem(20);
+      text-align: center;
+      scroll-snap-align: center;
+
+      &:first-child{
+        margin-left: rem(15);
+      }
+
+      &:nth-child(n){
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
